@@ -1,0 +1,32 @@
+<div class="message-container-recv">
+
+  <div class="message-main">
+    <div class="message-thumb" *ngIf="type == GROUP">
+      <ngx-avatar
+        [name]="messageDetails?.sender?.name"
+        size="35" [round]="true"
+      ></ngx-avatar>
+    </div>
+    <div class="message-detail">
+      <div class="name-content" *ngIf="type == GROUP">
+        <span class="name"> {{ messageDetails?.sender?.name }} </span>
+      </div>
+
+      <div class="message-txt-content">
+        <div class="message-main" id="check">
+          <div class="message-txt-main-recv">
+            <p class="message-text-recv">
+              {{ messageDetails.data.text }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="message-Info">
+        <chat-read-receipt
+          [messageDetails]="messageDetails"
+          [displayReadReciept]="false"
+        ></chat-read-receipt>
+      </div>
+    </div>
+  </div>
+</div>

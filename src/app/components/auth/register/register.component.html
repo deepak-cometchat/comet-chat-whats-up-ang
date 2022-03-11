@@ -1,0 +1,54 @@
+<div class="login-page bg">
+  <div class="row">
+    <div class="card col-10 col-sm-4">
+      <div class="card-body">
+        <form>
+          <form class="form-floating">
+            <div class="login-img mb-5">
+              <img src="/assets/logo.png" alt="" height="70" />
+              <h3 class="text-primary"><b>REGISTER</b></h3>
+            </div>
+            <div class="mb-3">
+
+              <label for="floatingInput">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="registerData.username"
+                name="username"
+                id="floatingInput"
+                placeholder="Dyd"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="floatingInput">Mobile</label>
+              <input
+                type="tel"
+                class="form-control"
+                [(ngModel)]="registerData.phone"
+                name="phone"
+                id="floatingInput"
+                placeholder="+91"
+              />
+              
+            </div>
+            <div id="emailHelp" class="form-text mt-3">
+              <b
+                >Already have an account?
+                <a href="" routerLink="/auth/login" class="text-primary"
+                  >Log In</a
+                >.</b
+              >
+            </div>
+          </form>
+          <div class="d-grid gap-2 mt-4">
+            <button class="btn btn-primary btn-lg" type="submit" (click)="register()">
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner></ngx-spinner>

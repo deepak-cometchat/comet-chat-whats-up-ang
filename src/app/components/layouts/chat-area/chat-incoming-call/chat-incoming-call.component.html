@@ -1,0 +1,43 @@
+<div
+  class="incoming-call-container"
+  *ngIf="incomingCall !== null"
+  [@slideInOut]
+>
+  <div class="call-container">
+    <div class="header-container">
+      <div class="call-detail">
+        <div class="name">
+          <!--name-->
+          {{ name }}
+        </div>
+        <div class="call-type">
+          <!--call type-->
+          <div *ngIf="incomingCall.type === CALL_TYPE_AUDIO">
+            <span class="audioCall"></span>
+            <span>{{ INCOMING_AUDIO_CALL }}</span>
+          </div>
+          <div *ngIf="incomingCall.type === CALL_TYPE_VIDEO">
+            <span class="videoCall"></span>
+            <span>{{ INCOMING_VIDEO_CALL }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="thumbnail">
+        <!--avatar-->
+        <ngx-avatar
+          [name]="user?.name"
+          size="35"
+          [round]="true"
+        ></ngx-avatar>
+      </div>
+    </div>
+    <div class="header-btn">
+      <button class="btn btn-decline" (click)="rejectCall()">
+        Reject
+      </button>
+      <button class="btn btn-accept" (click)="acceptCall()">
+        Accept
+      </button>
+    </div>
+  </div>
+</div>

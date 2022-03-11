@@ -1,0 +1,24 @@
+<section class="main-container">
+  <app-sidebar
+  [item]="item"
+  [type]="type"
+  (onUserClick)="userClicked($event)"
+  ></app-sidebar>
+  <app-chat-area *ngIf="this.item"
+  [item]="item"
+  [type]="type"
+  [callMessage]="callMessage"
+  (actionGenerated)="actionHandler($event)"
+  ></app-chat-area>
+  <div  *ngIf="!this.item" class="emptyMessageWindowStyle"></div>
+  <chat-incoming-call
+    (actionGenerated)="actionHandler($event)"
+  ></chat-incoming-call>
+  <chat-outgoing-call
+    [item]="item"
+    [type]="type"
+    [incomingCall]="incomingCall"
+    [outgoingCall]="outgoingCall"
+    (actionGenerated)="actionHandler($event)"
+  ></chat-outgoing-call>
+</section>

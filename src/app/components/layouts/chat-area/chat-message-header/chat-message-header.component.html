@@ -1,0 +1,44 @@
+<div class="chat-header">
+  <div class="chat-detail">
+    <div class="chat-thumb">
+      <ngx-avatar [name]="item?.name"
+      size="35" [round]="true">
+      </ngx-avatar>
+      <div>
+          <span *ngIf="item?.status == 'offline'" class="figure Offline"></span>
+          <span *ngIf="item?.status == 'online'" class="figure Online"></span>
+      </div>
+    </div>
+    <div class="chat-user">
+      <h6 class="chat-name">{{ item?.name }}</h6>
+      <div class="chat-status typing" *ngIf="isTyping">{{ status }}</div>
+      <div *ngIf="item?.status === ONLINE && !isTyping">
+        <span class="chat-status">{{ item?.status }}</span>
+      </div>
+
+      <div *ngIf="item?.status === OFFLINE">
+        <span class="chat-status last-active">{{
+          getLastActiveDate(item?.lastActive)
+        }}</span>
+      </div>
+
+      <div *ngIf="type === GROUP && !isTyping">
+        <span class="chat-status group-member-count-status">{{
+          status
+        }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="chat-option-content">
+    <button 
+    (click)="audioCall()"
+    mat-icon-button style="color: #1ebea5;border-radius: 1px !important;background: transparent;">
+      <mat-icon>call</mat-icon>
+    </button>
+    <button
+    (click)="videoCall()"
+    mat-icon-button style="color: #1ebea5;border-radius: 1px !important;background: transparent;">
+      <mat-icon>video_call</mat-icon>
+    </button>
+  </div>
+</div>

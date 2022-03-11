@@ -1,0 +1,27 @@
+<div class="user-Info">
+    <div class="detail-main">
+      <div class="thumbnail">
+        <ngx-avatar [name]="name"
+        size="35" [round]="true">
+        </ngx-avatar>
+        <div *ngIf="enableUserStatus">
+            <span *ngIf="userStatus == 'offline'" class="figure Offline"></span>
+            <span *ngIf="userStatus == 'online'" class="figure Online"></span>
+        </div>
+      </div>
+      <div class="user-detail">
+        <div class="user-name">
+          {{ name }}
+        </div>
+        <p class="user-status">Online</p>
+      </div>
+    </div>
+    <div class="options-main">
+      <div class="options-list">
+        <div class="options-cont Report">
+            <div class="options-name" style="cursor: pointer;" (click)="logOut()">Log Out</div>
+          </div>
+      </div>
+    </div>
+  </div>
+  

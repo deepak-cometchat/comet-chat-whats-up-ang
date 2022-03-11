@@ -1,0 +1,22 @@
+<div class="call-content" *ngIf="callInProgress" #callScreenFrame>
+  <div class="call-content-main" *ngIf="outgoingCallScreen">
+    <div class="header">
+      <span class="header-duration"> {{ CALLING }} </span>
+      <h6 class="header-name">{{ item?.name }}</h6>
+    </div>
+    <div class="thumb-content">
+      <div class="">
+        <ngx-avatar
+          [name]="item?.name"
+          size="50"
+          [round]="true"
+        ></ngx-avatar>
+      </div>
+    </div>
+    <div class="header-icon">
+      <div class="icon-cont">
+        <div class="icon-main" (click)="cancelCall()"></div>
+      </div>
+    </div>
+  </div>
+</div>

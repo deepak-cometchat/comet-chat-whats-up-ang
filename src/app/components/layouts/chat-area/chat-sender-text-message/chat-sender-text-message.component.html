@@ -1,0 +1,18 @@
+<div class="message-container">
+
+
+  <div class="message-main">
+    <div class="message-txt-main">
+      <p class="message-text message__txt">
+        {{ messageDetails.data.text }}
+      </p>
+    </div>
+  </div>
+
+  <div class="message-Info">
+
+    <chat-read-receipt
+      [messageDetails]="messageDetails"
+    ></chat-read-receipt>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="chat-main">
+    <div class="chats-header">
+      <h4 class="chats-header-title">Chats</h4>
+      <div></div>
+    </div>
+ 
+    <div class="chats-list" (scroll)="handleScroll($event)">
+      <div *ngFor="let conversation of conversationList">
+        <chat-list-item
+          [conversationDetails]="conversation"
+          [loggedInUser]="loggedInUser"
+          (onUserClick)="userClicked($event)"
+        >
+        </chat-list-item>
+      </div>
+    </div>
+  </div>
+  

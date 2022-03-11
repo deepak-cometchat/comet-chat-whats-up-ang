@@ -1,0 +1,15 @@
+<div class="group-main">
+    <div class="group-head">
+      <h4 class="group-head-til">Groups</h4>
+    </div>  
+    <div (scroll)="handleScroll($event)">
+      <div *ngFor="let group of groupList">
+        <group-list-item
+          [group]="group"
+          [selectedGroup]="this.selectedGroup"
+          (onGroupClick)="groupClicked($event)"
+        ></group-list-item>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,26 @@
+<div class="chat-main">
+  <chat-message-header
+    [item]="item"
+    [type]="type"
+    (actionGenerated)="actionHandler($event)"
+  ></chat-message-header>
+  <div
+    class="messageWindowStyle"
+    (scroll)="handleScroll($event)"
+    #messageWindow
+  >
+    <chat-message-list
+      [item]="item"
+      [type]="type"
+      [messages]="messageList"
+      [reachedTopOfConversation]=""
+      (actionGenerated)="actionHandler($event)"
+    ></chat-message-list>
+  </div>
+  <chat-message-inputarea
+    [item]="item"
+    [type]="type"
+    (actionGenerated)="actionHandler($event)"
+  ></chat-message-inputarea>
+</div>
+

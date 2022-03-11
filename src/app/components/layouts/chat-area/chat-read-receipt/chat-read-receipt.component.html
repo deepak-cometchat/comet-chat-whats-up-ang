@@ -1,0 +1,53 @@
+<div [ngSwitch]="tickStatus">
+  <div
+    *ngSwitchCase="SENT"
+    class="reciept-container"
+    [ngClass]="{
+      recieptContainerOther: displayReadReciept === false
+    }"
+  >
+    <span
+      class="msg-time-cont"
+      [ngClass]="{
+        msgTimeOther: displayReadReciept === false
+      }"
+    >
+      {{ time | date: "shortTime" }}
+    </span>
+    <span *ngIf="displayReadReciept" class="tick sent">&nbsp;</span>
+  </div>
+  <div
+    *ngSwitchCase="DELIVERED"
+    class="reciept-container"
+    [ngClass]="{
+      recieptContainerOther: displayReadReciept === false
+    }"
+  >
+    <span
+      class="msg-time-cont"
+      [ngClass]="{
+        msgTimeOther: displayReadReciept === false
+      }"
+    >
+      {{ time | date: "shortTime" }}
+    </span>
+    <span *ngIf="displayReadReciept" class="tick deliv">&nbsp;</span>
+  </div>
+  <div
+    *ngSwitchCase="READ"
+    class="reciept-container"
+    [ngClass]="{
+      recieptContainerOther: displayReadReciept === false
+    }"
+  >
+    <span
+      class="msg-time-cont"
+      [ngClass]="{
+        msgTimeOther: displayReadReciept === false
+      }"
+    >
+      {{ time | date: "shortTime" }}
+    </span>
+    <span *ngIf="displayReadReciept" class="tick read">&nbsp;</span>
+  </div>
+</div>

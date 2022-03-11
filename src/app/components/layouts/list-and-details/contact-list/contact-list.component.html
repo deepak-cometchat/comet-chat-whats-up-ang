@@ -1,0 +1,47 @@
+<div class="contact-main">
+    <div class="contact-head">
+      <h4 class="contact-head-til">Contacts</h4>
+      <div></div>
+    </div>
+    <div class="contact-search">
+      <input
+        class="contact-search-inp"
+        [placeholder]="SEARCH"
+        #search
+        type="text"
+        (keyup)="searchUsers(search.value)"
+        autocomplete="off"
+      />
+    </div>
+
+  
+    <div class="contact-list" (scroll)="handleScroll($event)">
+
+      <div
+        *ngFor="let user of usersList"
+      >
+
+  
+        <div class="contact-name" (click)="onUserClicked(user)">
+          <div class="list-item">
+            <div class="item-thumb">
+            <ngx-avatar [name]="user.name"
+            size="35" [round]="true">
+            </ngx-avatar>
+            <div>
+            <span *ngIf="user.status == 'offline'" class="figure Offline"></span>
+            <span *ngIf="user.status == 'online'" class="figure Online"></span>
+            </div>
+            </div>
+  
+            <div class="item-details">
+              <div class="item-name">
+                {{ user.name }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

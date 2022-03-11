@@ -1,0 +1,46 @@
+<div class="chat-list">
+
+  <div class="list-content">
+    <div *ngFor="let msg of messages; let i = index">
+      <div class="message-date" *ngIf="i === 0">
+        <span class="message-date-cont">{{
+          msg?.sentAt * 1000 | date: "dd/MM/yyyy"
+        }}</span>
+      </div>
+      <div
+        class="message-date"
+        *ngIf="
+          i > 0 && isDateDifferent(messages[i - 1]?.sentAt, messages[i]?.sentAt)
+        "
+      >
+        <span class="message-date-cont">{{
+          msg?.sentAt * 1000 | date: "dd/MM/yyyy"
+        }}</span>
+      </div>
+      <div *ngIf="msg?.category == CATEGORY_CALL">
+        <chat-action-message
+          [messageDetails]="msg"
+          [loggedInUserUid]="loggedInUser?.uid"
+        ></chat-action-message>
+      </div>
+        <div [ngSwitch]="msg.type">
+          <div *ngSwitchCase="MESSAGE_TYPE_TEXT">
+            <chat-receiver-text-message
+              *ngIf="msg.sender.uid !== loggedInUser.uid"
+              [type]="type"
+              [messageDetails]="msg"
+            ></chat-receiver-text-message>
+            <chat-sender-text-message
+              *ngIf="msg.sender.uid === loggedInUser.uid"
+              [messageDetails]="msg"
+            ></chat-sender-text-message>
+          </div>
+          <div *ngSwitchCase="'groupMember'">
+            <div class="actionMessageStyle">
+              <p class="actionMessageTxtStyle">{{ msg?.message }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

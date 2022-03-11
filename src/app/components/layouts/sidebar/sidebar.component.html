@@ -1,0 +1,49 @@
+<section class="sidebar">
+  <div class="sidebar__header">
+    <button mat-icon-button  [ngClass]="{active:currentType == 'chatList'}" (click)="changeTab('chatList')">
+      <mat-icon>chat</mat-icon>
+    </button>
+   <div class="sidebar__header__icons">
+    <button mat-icon-button  [ngClass]="{active:currentType == 'contactList'}"  (click)="changeTab('contactList')">
+      <mat-icon>contacts</mat-icon>
+    </button>
+    <button mat-icon-button [ngClass]="{active:currentType == 'groupList'}"  (click)="changeTab('groupList')">
+      <mat-icon>group</mat-icon>
+    </button>
+    <button mat-icon-button [ngClass]="{active:currentType == 'userProfile'}"  (click)="changeTab('userProfile')">
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+    </div>
+  </div>
+  
+
+  <div class="sidebar__content">
+  
+      <ng-template [ngIf]="currentType == 'chatList'">
+        <app-chat-list
+        (onUserClick)="userClicked($event)"
+        [item]="item"
+        [lastMessage]="lastMessage"
+        [type]="type"
+        ></app-chat-list>
+      </ng-template>
+      <ng-template [ngIf]="currentType == 'groupList'">
+        <app-group-list
+        [enableSelectedGroupStyling]="true"
+        (onGroupClick)="groupClicked($event)"
+       ></app-group-list>
+      </ng-template>
+      <ng-template [ngIf]="currentType == 'contactList'">
+        <app-contact-list
+        [item]="curentItem"
+        (onUserClick)="userClicked($event)"
+        ></app-contact-list>
+      </ng-template>
+      <ng-template [ngIf]="currentType == 'userProfile'">
+        <app-user-profile></app-user-profile>
+      </ng-template>
+
+  </div>
+
+
+</section>

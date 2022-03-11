@@ -1,0 +1,31 @@
+<div class="list-item" (click)="onUserClicked(conversationDetails)">
+  <div class="item-thumb">
+
+
+      <ngx-avatar [name]="lastMessageName"
+      size="35" [round]="true">
+      </ngx-avatar>
+      <div>
+          <span *ngIf="conversationDetails.conversationWith.status == 'offline'" class="figure Offline"></span>
+          <span *ngIf="conversationDetails.conversationWith.status == 'online'" class="figure Online"></span>
+      </div>
+  </div>
+  <div class="item-details">
+    <div class="item-row">
+      <div class="item-name">
+        {{ lastMessageName }}
+      </div>
+      <span class="item-lst-msg-time">
+        {{ lastMessageTimestamp }}
+      </span>
+    </div>
+    <div class="item-row">
+      <div class="item-lst-msg">
+        {{ lastMessage }}
+      </div>
+      <span *ngIf="conversationDetails.unreadMessageCount > 0" class="badgeStyle">
+        {{ conversationDetails.unreadMessageCount }}
+      </span>
+    </div>
+  </div>
+</div>

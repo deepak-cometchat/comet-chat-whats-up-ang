@@ -1,0 +1,24 @@
+<div class="chat-box">
+  <div class="box-Input">
+    <div class="input-box" tabindex="-1">
+      <input
+        class="message-input"
+        contenteditable="true"
+        [placeholder]="ENTER_YOUR_MESSAGE_HERE"
+        dir="ltr"
+        (input)="changeHandler($event)"
+        (blur)="endTyping()"
+        (keyup)="sendMessageOnEnter($event)"
+        [value]="messageInput"
+        #message
+      />
+      <div class="input-fixbox">
+        <div class="st-btn">
+          <button [disabled]="!enableSendButton" (click)="sendTextMessage(message.value)" mat-icon-button style="color: #1ebea5;border-radius: 1px !important;background: transparent;">
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

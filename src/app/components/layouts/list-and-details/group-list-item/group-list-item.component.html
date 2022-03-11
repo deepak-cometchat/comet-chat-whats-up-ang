@@ -1,0 +1,24 @@
+<div
+  class="list-item"
+  [ngClass]="{
+    selectedGroupStyle: group?.guid === selectedGroup?.guid
+  }"
+  (click)="groupClicked(group)"
+>
+  <div class="item-thumb">
+    <ngx-avatar [name]="group.name"
+    size="35" [round]="true">
+    </ngx-avatar>
+  </div>
+  <div class="item-details">
+    <div class="item-name-main">
+      <span class="list-item-name">{{ group.name }}</span>
+    </div>
+    <div class="item-desc" *ngIf="group.membersCount == 1">
+      {{ group?.membersCount }} member
+    </div>
+    <div class="item-desc" *ngIf="group.membersCount > 1">
+      {{ group?.membersCount }} members
+    </div>
+  </div>
+</div>
